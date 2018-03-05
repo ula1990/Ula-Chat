@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */; };
 		C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7A204C21AC00D792D7 /* AppDelegate.swift */; };
-		C0432F7D204C21AC00D792D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* ViewController.swift */; };
+		C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* MesssagesController.swift */; };
 		C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F7E204C21AC00D792D7 /* Main.storyboard */; };
 		C0432F82204C21AC00D792D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0432F81204C21AC00D792D7 /* Assets.xcassets */; };
 		C0432F85204C21AC00D792D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F83204C21AC00D792D7 /* LaunchScreen.storyboard */; };
 		C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F8C204C248A00D792D7 /* LoginController.swift */; };
 		C04FB6DA204C449500046D44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04FB6D9204C449500046D44 /* GoogleService-Info.plist */; };
+		C04FB6DC204D4F3A00046D44 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6DB204D4F3A00046D44 /* NewMessageController.swift */; };
+		C04FB6DE204D55EC00046D44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6DD204D55EC00046D44 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +24,15 @@
 		5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UlaChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F77204C21AC00D792D7 /* UlaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F7A204C21AC00D792D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0432F7C204C21AC00D792D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0432F7C204C21AC00D792D7 /* MesssagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssagesController.swift; sourceTree = "<group>"; };
 		C0432F7F204C21AC00D792D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0432F81204C21AC00D792D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0432F84204C21AC00D792D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0432F86204C21AC00D792D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0432F8C204C248A00D792D7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		C04FB6D9204C449500046D44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C04FB6DB204D4F3A00046D44 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		C04FB6DD204D55EC00046D44 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E5ABBD2987F3EDB4210BCE92 /* Pods-UlaChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				C0432F7A204C21AC00D792D7 /* AppDelegate.swift */,
+				C04FB6DD204D55EC00046D44 /* User.swift */,
 				C0432F8E204C249100D792D7 /* Controller */,
 				C0432F7E204C21AC00D792D7 /* Main.storyboard */,
 				C0432F81204C21AC00D792D7 /* Assets.xcassets */,
@@ -87,8 +92,9 @@
 		C0432F8E204C249100D792D7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C0432F7C204C21AC00D792D7 /* ViewController.swift */,
+				C0432F7C204C21AC00D792D7 /* MesssagesController.swift */,
 				C0432F8C204C248A00D792D7 /* LoginController.swift */,
+				C04FB6DB204D4F3A00046D44 /* NewMessageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,7 +244,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0432F7D204C21AC00D792D7 /* ViewController.swift in Sources */,
+				C04FB6DE204D55EC00046D44 /* User.swift in Sources */,
+				C04FB6DC204D4F3A00046D44 /* NewMessageController.swift in Sources */,
+				C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */,
 				C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */,
 				C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */,
 			);
