@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>329516652948-d0lnlhrup7tt5623rc8vgsgggvbqlsv4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.329516652948-d0lnlhrup7tt5623rc8vgsgggvbqlsv4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCaAbiOMJYEFc69FbqcD5_h-5gwultv-bY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>329516652948</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uladzislau.daratsiuk.UlaChat</string>
+	<key>PROJECT_ID</key>
+	<string>ulachat-3a303</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ulachat-3a303.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:329516652948:ios:eb19734c15ffe235</string>
+	<key>DATABASE_URL</key>
+	<string>https://ulachat-3a303.firebaseio.com</string>
+</dict>
+</plist>

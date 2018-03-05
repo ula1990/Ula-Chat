@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */; };
 		C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7A204C21AC00D792D7 /* AppDelegate.swift */; };
 		C0432F7D204C21AC00D792D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* ViewController.swift */; };
 		C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F7E204C21AC00D792D7 /* Main.storyboard */; };
 		C0432F82204C21AC00D792D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0432F81204C21AC00D792D7 /* Assets.xcassets */; };
 		C0432F85204C21AC00D792D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F83204C21AC00D792D7 /* LaunchScreen.storyboard */; };
+		C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F8C204C248A00D792D7 /* LoginController.swift */; };
+		C04FB6DA204C449500046D44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04FB6D9204C449500046D44 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		283AF765F04A7A6C6BE5318C /* Pods-UlaChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.debug.xcconfig"; sourceTree = "<group>"; };
+		5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UlaChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F77204C21AC00D792D7 /* UlaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F7A204C21AC00D792D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0432F7C204C21AC00D792D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		C0432F81204C21AC00D792D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0432F84204C21AC00D792D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0432F86204C21AC00D792D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0432F8C204C248A00D792D7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C04FB6D9204C449500046D44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5ABBD2987F3EDB4210BCE92 /* Pods-UlaChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1716720F312F1159E7C54AD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0432F6E204C21AC00D792D7 = {
 			isa = PBXGroup;
 			children = (
 				C0432F79204C21AC00D792D7 /* UlaChat */,
 				C0432F78204C21AC00D792D7 /* Products */,
+				FC5B75AACB4BB3397AC76917 /* Pods */,
+				1716720F312F1159E7C54AD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +74,32 @@
 			isa = PBXGroup;
 			children = (
 				C0432F7A204C21AC00D792D7 /* AppDelegate.swift */,
-				C0432F7C204C21AC00D792D7 /* ViewController.swift */,
+				C0432F8E204C249100D792D7 /* Controller */,
 				C0432F7E204C21AC00D792D7 /* Main.storyboard */,
 				C0432F81204C21AC00D792D7 /* Assets.xcassets */,
 				C0432F83204C21AC00D792D7 /* LaunchScreen.storyboard */,
 				C0432F86204C21AC00D792D7 /* Info.plist */,
+				C04FB6D9204C449500046D44 /* GoogleService-Info.plist */,
 			);
 			path = UlaChat;
+			sourceTree = "<group>";
+		};
+		C0432F8E204C249100D792D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C0432F7C204C21AC00D792D7 /* ViewController.swift */,
+				C0432F8C204C248A00D792D7 /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC5B75AACB4BB3397AC76917 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				283AF765F04A7A6C6BE5318C /* Pods-UlaChat.debug.xcconfig */,
+				E5ABBD2987F3EDB4210BCE92 /* Pods-UlaChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0432F89204C21AC00D792D7 /* Build configuration list for PBXNativeTarget "UlaChat" */;
 			buildPhases = (
+				543E85551B9BF01750E32AE2 /* [CP] Check Pods Manifest.lock */,
 				C0432F73204C21AC00D792D7 /* Sources */,
 				C0432F74204C21AC00D792D7 /* Frameworks */,
 				C0432F75204C21AC00D792D7 /* Resources */,
+				B626A5E4C48AA3413493E39E /* [CP] Embed Pods Frameworks */,
+				5E193AE444745A9F442D1F63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0432F85204C21AC00D792D7 /* LaunchScreen.storyboard in Resources */,
+				C04FB6DA204C449500046D44 /* GoogleService-Info.plist in Resources */,
 				C0432F82204C21AC00D792D7 /* Assets.xcassets in Resources */,
 				C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */,
 			);
@@ -131,12 +173,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		543E85551B9BF01750E32AE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UlaChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E193AE444745A9F442D1F63 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B626A5E4C48AA3413493E39E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0432F73204C21AC00D792D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C0432F7D204C21AC00D792D7 /* ViewController.swift in Sources */,
+				C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */,
 				C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +375,7 @@
 		};
 		C0432F8A204C21AC00D792D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 283AF765F04A7A6C6BE5318C /* Pods-UlaChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +391,7 @@
 		};
 		C0432F8B204C21AC00D792D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5ABBD2987F3EDB4210BCE92 /* Pods-UlaChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
