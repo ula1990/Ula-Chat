@@ -21,10 +21,25 @@ class ViewController: UITableViewController {
      //  ref.updateChildValues(["some value": 12345 ])
     
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        
+        
+        //user is not loggged in
+        
+        if Auth.auth().currentUser?.uid == nil {
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+            
+        }
         
     }
     
     @objc func handleLogout(){
+        do {
+            
+            try Auth.auth().signOut()
+        }catch let logoutError {
+            print(logoutError)
+        }
         let loginControlller = LoginController()
         present(loginControlller, animated: true, completion: nil)
         
