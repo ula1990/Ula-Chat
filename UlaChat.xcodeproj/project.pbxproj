@@ -19,6 +19,7 @@
 		C04FB6DE204D55EC00046D44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6DD204D55EC00046D44 /* User.swift */; };
 		C04FB6E0204D8CEA00046D44 /* LoginControllerHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6DF204D8CEA00046D44 /* LoginControllerHandlers.swift */; };
 		C04FB6E3204E9A3800046D44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6E2204E9A3800046D44 /* Extensions.swift */; };
+		C04FB6E6204EC10B00046D44 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FB6E5204EC10B00046D44 /* ChatLogController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C04FB6DD204D55EC00046D44 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C04FB6DF204D8CEA00046D44 /* LoginControllerHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerHandlers.swift; sourceTree = "<group>"; };
 		C04FB6E2204E9A3800046D44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C04FB6E5204EC10B00046D44 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		E5ABBD2987F3EDB4210BCE92 /* Pods-UlaChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,10 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				C04FB6E1204E9A1700046D44 /* Helpers */,
-				C0432F7A204C21AC00D792D7 /* AppDelegate.swift */,
-				C04FB6DD204D55EC00046D44 /* User.swift */,
+				C04FB6E4204EC0C900046D44 /* Model */,
 				C0432F8E204C249100D792D7 /* Controller */,
 				C0432F7E204C21AC00D792D7 /* Main.storyboard */,
+				C0432F7A204C21AC00D792D7 /* AppDelegate.swift */,
 				C0432F81204C21AC00D792D7 /* Assets.xcassets */,
 				C0432F83204C21AC00D792D7 /* LaunchScreen.storyboard */,
 				C0432F86204C21AC00D792D7 /* Info.plist */,
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C0432F7C204C21AC00D792D7 /* MesssagesController.swift */,
+				C04FB6E5204EC10B00046D44 /* ChatLogController.swift */,
 				C0432F8C204C248A00D792D7 /* LoginController.swift */,
 				C04FB6DF204D8CEA00046D44 /* LoginControllerHandlers.swift */,
 				C04FB6DB204D4F3A00046D44 /* NewMessageController.swift */,
@@ -111,6 +114,14 @@
 				C04FB6E2204E9A3800046D44 /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C04FB6E4204EC0C900046D44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C04FB6DD204D55EC00046D44 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FC5B75AACB4BB3397AC76917 /* Pods */ = {
@@ -258,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04FB6E6204EC10B00046D44 /* ChatLogController.swift in Sources */,
 				C04FB6E0204D8CEA00046D44 /* LoginControllerHandlers.swift in Sources */,
 				C04FB6DE204D55EC00046D44 /* User.swift in Sources */,
 				C04FB6DC204D4F3A00046D44 /* NewMessageController.swift in Sources */,
