@@ -12,6 +12,7 @@ import Firebase
 
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+  
     
     @objc func handleRegister(){
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
@@ -27,8 +28,12 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 return
             }
             let imageName = NSUUID().uuidString
-            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
-            if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!){
+            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
+            
+            if let uploadData = UIImageJPEGRepresentation(self.profileImageView.image!, 0.1){
+            
+      //      if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!){
+                
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         print(error)
@@ -57,6 +62,9 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 print(err)
                 return
             }
+            //self.messagesController?.fetchUserAndSetupNavBarTitle()
+            
+            self.messagesController?.navigationItem.title = values["name"] as? String
             self.dismiss(animated: true, completion: nil)
             
         } )
