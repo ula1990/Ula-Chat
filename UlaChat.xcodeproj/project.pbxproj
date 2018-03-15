@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */; };
+		C0295038205A800100FCB710 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0295037205A800100FCB710 /* Message.swift */; };
 		C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7A204C21AC00D792D7 /* AppDelegate.swift */; };
 		C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* MesssagesController.swift */; };
 		C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F7E204C21AC00D792D7 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		283AF765F04A7A6C6BE5318C /* Pods-UlaChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UlaChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0295037205A800100FCB710 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C0432F77204C21AC00D792D7 /* UlaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F7A204C21AC00D792D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0432F7C204C21AC00D792D7 /* MesssagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssagesController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C04FB6DD204D55EC00046D44 /* User.swift */,
+				C0295037205A800100FCB710 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				C04FB6E6204EC10B00046D44 /* ChatLogController.swift in Sources */,
 				C04FB6E0204D8CEA00046D44 /* LoginControllerHandlers.swift in Sources */,
 				C04FB6DE204D55EC00046D44 /* User.swift in Sources */,
+				C0295038205A800100FCB710 /* Message.swift in Sources */,
 				C04FB6DC204D4F3A00046D44 /* NewMessageController.swift in Sources */,
 				C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */,
 				C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */,
