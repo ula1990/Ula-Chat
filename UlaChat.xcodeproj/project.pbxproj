@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */; };
 		C0295038205A800100FCB710 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0295037205A800100FCB710 /* Message.swift */; };
+		C029503B205AB06000FCB710 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029503A205AB06000FCB710 /* UserCell.swift */; };
 		C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7A204C21AC00D792D7 /* AppDelegate.swift */; };
 		C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* MesssagesController.swift */; };
 		C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F7E204C21AC00D792D7 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		283AF765F04A7A6C6BE5318C /* Pods-UlaChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UlaChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UlaChat/Pods-UlaChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UlaChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0295037205A800100FCB710 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C029503A205AB06000FCB710 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C0432F77204C21AC00D792D7 /* UlaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F7A204C21AC00D792D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0432F7C204C21AC00D792D7 /* MesssagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssagesController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C0295039205AB02300FCB710 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C029503A205AB06000FCB710 /* UserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C0432F6E204C21AC00D792D7 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		C0432F79204C21AC00D792D7 /* UlaChat */ = {
 			isa = PBXGroup;
 			children = (
+				C0295039205AB02300FCB710 /* View */,
 				C04FB6E1204E9A1700046D44 /* Helpers */,
 				C04FB6E4204EC0C900046D44 /* Model */,
 				C0432F8E204C249100D792D7 /* Controller */,
@@ -280,6 +291,7 @@
 				C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */,
 				C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */,
 				C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */,
+				C029503B205AB06000FCB710 /* UserCell.swift in Sources */,
 				C04FB6E3204E9A3800046D44 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

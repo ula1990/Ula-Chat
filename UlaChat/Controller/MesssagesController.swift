@@ -11,38 +11,51 @@ import Firebase
 import FirebaseDatabase
 
 class MesssagesController: UITableViewController {
+    
+    let cellId = "cellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      // let ref = Database.database().reference(fromURL: " https://ulachat-3a303.firebaseio.com/")
-     //  ref.updateChildValues(["some value": 12345 ])
-    
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewMessage))
         navigationItem.rightBarButtonItem?.tintColor = .black
 
-        //user is not loggged in
-        
         checkIfUserIsLoggedIn()
+        
+        tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
         observerMessages()
     }
     
     var messages = [Message]()
+    var messagesDictionary = [String: Message]()
     
     func observerMessages(){
         
         let ref = Database.database().reference().child("messages")
-        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+        ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
+
                 let message = Message()
-                message.fromId = snapshot.key
+                message.toId = dictionary["toId"] as? String
                 message.text = dictionary["text"] as? String
                 message.timestamp = dictionary["timestamp"] as? NSNumber
-                message.toId = dictionary["toId"] as? String
-                self.messages.append(message)
+                message.fromId = dictionary["fromId"] as? String
+
+ 
+//                self.messages.append(message)
+                if let toId = message.toId {
+                     self.messagesDictionary[toId] = message
+                        self.messages = Array(self.messagesDictionary.values)
+                    
+                    self.messages.sort(by: { (message1, message2) -> Bool in
+                        
+                        return message1.timestamp!.intValue > message2.timestamp!.intValue
+                    })
+                }
+               
+ 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -58,12 +71,19 @@ class MesssagesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
-        let message = messages[indexPath.row]
-        cell.textLabel?.text = message.text
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         
+        let message = messages[indexPath.row]
+        
+        cell.message  = message
+
         return cell
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
     }
     
 
@@ -90,7 +110,6 @@ class MesssagesController: UITableViewController {
             return
         }
         Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in
-            print(snapshot)
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 self.navigationItem.title = dictionary["name"] as? String
                 
