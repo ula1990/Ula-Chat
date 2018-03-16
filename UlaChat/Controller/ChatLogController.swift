@@ -73,7 +73,8 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         setupInputComponets()
         collectionView?.alwaysBounceVertical = true
-        
+        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
 
     }
     
@@ -86,12 +87,58 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         let message = messages[indexPath.item]
         
         cell.textView.text = message.text
+        
+       setupCell(cell: cell, message: message)
+        
+        cell.bubbleWidthAnchor?.constant =  estimateFrameForText(text: message.text!).width 
+        
         return cell
     }
     
+    private func setupCell(cell: ChatMessageCell, message: Message){
+        if let profileImageUrl = self.user?.profileImageUrl {
+            cell.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
+        }
+        
+        if message.fromId == Auth.auth().currentUser?.uid{
+            
+            cell.bubbleView.backgroundColor = ChatMessageCell.blueColor
+            cell.textView.textColor = .white
+            cell.profileImageView.isHidden = true
+            cell.bubbleViewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAnchor?.isActive = false
+            
+        }else{
+            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+            cell.textView.textColor = .black
+            cell.profileImageView.isHidden = false
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
+            
+            
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        var hight: CGFloat = 80
+                if let text = messages[indexPath.item].text {
+            hight = estimateFrameForText(text: text).height + 35
+        }
+        
+        return CGSize(width: view.frame.width, height: hight)
+    }
+    
+    private func estimateFrameForText(text: String) -> CGRect {
+        
+        let size = CGSize(width: 2000, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        return   NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16) ], context: nil)
+        
     }
     
     func setupInputComponets(){
@@ -148,9 +195,7 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         let toId = user?.id
         let fromID = Auth.auth().currentUser!.uid
         let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        let values = ["text": inputTextField.text!, "toId": toId, "fromId": fromID, "timestamp": timeStamp] as [String : Any] 
-    //    childRef.updateChildValues(values)
-        
+        let values = ["text": inputTextField.text!, "toId": toId, "fromId": fromID, "timestamp": timeStamp] as [String : Any]
         
         
         childRef.updateChildValues((values)) { (error, ref) in
@@ -158,6 +203,8 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
                 print(error)
                 return
             }
+            
+            self.inputTextField.text = nil
             
             let userMessagesRef = Database.database().reference().child("user-messages").child(fromID)
             let messageId = childRef.key

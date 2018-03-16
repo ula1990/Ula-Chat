@@ -24,13 +24,11 @@ class MesssagesController: UITableViewController {
         checkIfUserIsLoggedIn()
         
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
-        
-     
+
     }
     
     var messages = [Message]()
     var messagesDictionary = [String: Message]()
-    
     
     func observeUserMessages(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -38,9 +36,7 @@ class MesssagesController: UITableViewController {
         ref.observe(.childAdded, with: { (snapshot) in
             
             let messageId  = snapshot.key
-            
             let messagesReference = Database.database().reference().child("messages").child(messageId)
-            print(messagesReference)
             messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject]{
                     
@@ -51,59 +47,31 @@ class MesssagesController: UITableViewController {
                     message.fromId = dictionary["fromId"] as? String
                     
                     self.messages.append(message)
-                    if let toId = message.toId {
-                        self.messagesDictionary[toId] = message
-                        self.messages = Array(self.messagesDictionary.values)
+                    if let chatPartnerId = message.chatPartnerId() {
                         
+                        self.messagesDictionary[chatPartnerId] = message
+                        self.messages = Array(self.messagesDictionary.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
                             
                             return message1.timestamp!.intValue > message2.timestamp!.intValue
                         })
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    self.timer?.invalidate()
+                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.hadleReloadTable), userInfo: nil, repeats: false)
+            
                     }
-                }
             }, withCancel: nil)
             
         }, withCancel: nil)
     }
     
-/*    func observerMessages(){
-        
-        let ref = Database.database().reference().child("messages")
-        ref.observe(.childAdded, with: { (snapshot) in
-     
-     let message = Message()
-     message.toId = dictionary["toId"] as? String
-     message.text = dictionary["text"] as? String
-     message.timestamp = dictionary["timestamp"] as? NSNumber
-     message.fromId = dictionary["fromId"] as? String
-     
-     self.messages.append(message)
-     if let toId = message.toId {
-     self.messagesDictionary[toId] = message
-     self.messages = Array(self.messagesDictionary.values)
-     
-     self.messages.sort(by: { (message1, message2) -> Bool in
-     
-     return message1.timestamp!.intValue > message2.timestamp!.intValue
-     })
-     }
-     
-     DispatchQueue.main.async {
-     self.tableView.reloadData()
-     }
-     }
-    
-            
-        }, withCancel: nil)
-        
+    var timer: Timer?
+
+    @objc func hadleReloadTable(){
+    DispatchQueue.main.async {
+        self.tableView.reloadData()
+        }
     }
- 
- */
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -131,7 +99,7 @@ class MesssagesController: UITableViewController {
          let chatPartnerId = message.chatPartnerId()
         
         
-        let ref = Database.database().reference().child("users").child(chatPartnerId)
+        let ref = Database.database().reference().child("users").child(chatPartnerId!)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: AnyObject] else {
                 return
