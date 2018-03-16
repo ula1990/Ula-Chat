@@ -13,23 +13,7 @@ class UserCell: UITableViewCell {
     
     var message: Message?{
         didSet {
-            if let toId = message?.toId {
-                let ref = Database.database().reference().child("users").child(toId)
-                print(ref)
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    print(snapshot)
-                    if let dictionary = snapshot.value as? [String: AnyObject]{
-                            self.textLabel?.text = dictionary["name"] as? String
-                        
-                        if let profileImageUrl = dictionary["profileImageUrl"] as? String {
-                            
-                            self.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
-                        }
-        
-                    }
-                    
-                }, withCancel: nil)
-            }
+            setupNameAndProfileImage()
             self.detailTextLabel?.text = message?.text
             
             if let seconds  = message?.timestamp?.doubleValue{
@@ -39,11 +23,30 @@ class UserCell: UITableViewCell {
                 timeLabel.text = dateFormatter.string(from: timestampDate as Date)
                 
             }
-            
-           
-    
         }
         
+    }
+    
+    
+    private func setupNameAndProfileImage(){
+ 
+        if let id = message?.chatPartnerId() {
+            let ref = Database.database().reference().child("users").child(id)
+            print(ref)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if let dictionary = snapshot.value as? [String: AnyObject]{
+                    self.textLabel?.text = dictionary["name"] as? String
+                    
+                    if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                        
+                        self.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
+                    }
+                    
+                }
+                
+            }, withCancel: nil)
+        }
     }
     
     override func layoutSubviews() {
@@ -65,7 +68,6 @@ class UserCell: UITableViewCell {
     
     let timeLabel : UILabel = {
         let label = UILabel()
-        label.text = "HH:MM:SS"
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,19 +82,14 @@ class UserCell: UITableViewCell {
         addSubview(timeLabel)
         
         timeLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        timeLabel.centerYAnchor.constraint(equalTo: (self.textLabel?.centerYAnchor)!).isActive = true
+        timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         timeLabel.heightAnchor.constraint(equalTo: (textLabel?.heightAnchor)!).isActive = true
      
-        
-        
-        
         profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
         profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 18).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

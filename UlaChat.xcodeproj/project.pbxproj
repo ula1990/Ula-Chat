@@ -10,6 +10,7 @@
 		0ABC87AF2BED694AFAC8003E /* Pods_UlaChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */; };
 		C0295038205A800100FCB710 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0295037205A800100FCB710 /* Message.swift */; };
 		C029503B205AB06000FCB710 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029503A205AB06000FCB710 /* UserCell.swift */; };
+		C029503D205BD77F00FCB710 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029503C205BD77F00FCB710 /* ChatMessageCell.swift */; };
 		C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7A204C21AC00D792D7 /* AppDelegate.swift */; };
 		C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0432F7C204C21AC00D792D7 /* MesssagesController.swift */; };
 		C0432F80204C21AC00D792D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0432F7E204C21AC00D792D7 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		5AC4CE36C32D62EF67C1908F /* Pods_UlaChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UlaChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0295037205A800100FCB710 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C029503A205AB06000FCB710 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		C029503C205BD77F00FCB710 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		C0432F77204C21AC00D792D7 /* UlaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0432F7A204C21AC00D792D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0432F7C204C21AC00D792D7 /* MesssagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssagesController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				C029503A205AB06000FCB710 /* UserCell.swift */,
+				C029503C205BD77F00FCB710 /* ChatMessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				C04FB6DC204D4F3A00046D44 /* NewMessageController.swift in Sources */,
 				C0432F7D204C21AC00D792D7 /* MesssagesController.swift in Sources */,
 				C0432F8D204C248A00D792D7 /* LoginController.swift in Sources */,
+				C029503D205BD77F00FCB710 /* ChatMessageCell.swift in Sources */,
 				C0432F7B204C21AC00D792D7 /* AppDelegate.swift in Sources */,
 				C029503B205AB06000FCB710 /* UserCell.swift in Sources */,
 				C04FB6E3204E9A3800046D44 /* Extensions.swift in Sources */,
