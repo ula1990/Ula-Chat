@@ -71,13 +71,30 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
    
         collectionView?.backgroundColor = .white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
-        setupInputComponets()
+        
         collectionView?.alwaysBounceVertical = true
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-
+        setupInputComponets()
+        setupKeyboardObservers()
     }
     
+    func setupKeyboardObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    
+    
+    
+    @objc func handlekeyboardWillShow(notification: NSNotification){
+        
+        let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        print(keyboardFrame?.height)
+        
+        containerViewBottomAnchor?.constant = -keyboardFrame!.height
+    }
+ 
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
@@ -97,7 +114,7 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
     
     private func setupCell(cell: ChatMessageCell, message: Message){
         if let profileImageUrl = self.user?.profileImageUrl {
-            cell.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
+        cell.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
         }
         
         if message.fromId == Auth.auth().currentUser?.uid{
@@ -141,6 +158,9 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         
     }
     
+    var containerViewBottomAnchor: NSLayoutConstraint?
+    
+    
     func setupInputComponets(){
         
         let containerView = UIView()
@@ -150,7 +170,13 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         view.addSubview(containerView)
         
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        containerViewBottomAnchor =  containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        
+        containerViewBottomAnchor?.isActive = true
+        
+        
+        
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
