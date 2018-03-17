@@ -81,17 +81,37 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
     
     func setupKeyboardObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
     }
     
     
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+        
+    }
     
     @objc func handlekeyboardWillShow(notification: NSNotification){
         
         let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-        print(keyboardFrame?.height)
-        
+        let keyboardDuration = ((notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]) as AnyObject).doubleValue
         containerViewBottomAnchor?.constant = -keyboardFrame!.height
+        UIView.animate(withDuration: keyboardDuration!) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func handlekeyboardWillHide(notification: NSNotification){
+        
+        let keyboardDuration = ((notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]) as AnyObject).doubleValue
+        containerViewBottomAnchor?.constant = 0
+        UIView.animate(withDuration: keyboardDuration!) {
+            self.view.layoutIfNeeded()
+        }
     }
  
 
