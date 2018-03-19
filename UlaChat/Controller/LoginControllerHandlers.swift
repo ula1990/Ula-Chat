@@ -21,7 +21,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         }
         Auth.auth().createUser(withEmail: email, password: password) {(user , error ) in
             if error != nil{
-                print(Error.self)
+                Alert.showBasic(title: "Incorrect input", msg: "User already exist or there is no connection with network", vc: self)
                 return
             }
             guard let uid = user?.uid else {
@@ -36,7 +36,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
-                        print(error)
+                        Alert.showBasic(title: "Network Error", msg: "Please check your connection", vc: self)
                         return
                     }
                     if let profileImageUrl =  metadata?.downloadURL()?.absoluteString{
@@ -59,7 +59,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         let usersReference = ref.child("users").child(uid)
         usersReference.updateChildValues(values, withCompletionBlock: {(err, ref) in
             if err != nil {
-                print(err)
+                Alert.showBasic(title: "Network error", msg: "Please check your connection", vc: self)
                 return
             }
             let user = User()

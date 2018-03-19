@@ -27,12 +27,15 @@ class LoginController: UIViewController {
     
    lazy var  loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        button.backgroundColor = UIColor(r: 0 , g: 89 , b: 179)
+        //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.addTarget(self, action: #selector(handleLoginregister), for: .touchUpInside)
+        button.layer.cornerRadius = 5
+    
         
         return button
         
@@ -55,7 +58,7 @@ class LoginController: UIViewController {
         }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
-                print(error)
+                Alert.showBasic(title: "Please check input", msg: "Username or password is incorrect", vc: self)
                 return
             }
             
@@ -160,7 +163,9 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+       view.backgroundColor = UIColor(r: 0, g: 102, b: 204)
+        
+      //  view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
