@@ -29,7 +29,6 @@ class NewMessageController: UITableViewController {
     func fetchUser(){
         Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
-                print(dictionary)
                 let user = User()
                 user.id = snapshot.key
                 user.name = dictionary["name"] as? String
@@ -71,16 +70,13 @@ class NewMessageController: UITableViewController {
         return 72
     }
     
-    
     var messagesController: MesssagesController?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true){
-            print("Dismiss")
             let user = self.users[indexPath.row]
             self.messagesController?.showChatController(user: user)
-            
-            
+
         }
     }
 }

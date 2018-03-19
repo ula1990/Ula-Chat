@@ -12,8 +12,6 @@ import Firebase
 
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-  
-    
     @objc func handleRegister(){
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
             print(Error.self )
@@ -43,15 +41,11 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                         let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
                         self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject] )
                     }
-                    
-                   
-        
                 })
             }
 
         }
     }
-    
     
     private func registerUserIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
         

@@ -15,7 +15,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
     var user: User? {
         didSet {
             navigationItem.title = user?.name
-            
             observeMessages()
         }
     }
@@ -48,8 +47,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
                         self.collectionView?.reloadData()
                     }
                 }
-               
-                print(message.text)
                 
             }, withCancel: nil)
             
@@ -68,10 +65,9 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+
         collectionView?.backgroundColor = .white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
-        
         collectionView?.alwaysBounceVertical = true
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
@@ -83,10 +79,7 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        
     }
-    
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -124,9 +117,7 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         let message = messages[indexPath.item]
         
         cell.textView.text = message.text
-        
-       setupCell(cell: cell, message: message)
-        
+        setupCell(cell: cell, message: message)
         cell.bubbleWidthAnchor?.constant =  estimateFrameForText(text: message.text!).width 
         
         return cell
@@ -151,8 +142,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
             cell.profileImageView.isHidden = false
             cell.bubbleViewRightAnchor?.isActive = false
             cell.bubbleViewLeftAnchor?.isActive = true
-            
-            
         }
     }
     
@@ -190,13 +179,8 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         view.addSubview(containerView)
         
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        
         containerViewBottomAnchor =  containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        
         containerViewBottomAnchor?.isActive = true
-        
-        
-        
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
@@ -207,7 +191,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
         containerView.addSubview(sendButton)
         
-        
         sendButton.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         sendButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         sendButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
@@ -217,10 +200,8 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         
         inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 8).isActive = true
         inputTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-     
         inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
         inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-        
         
         let separatorLineView = UIView()
         separatorLineView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
@@ -246,7 +227,7 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         
         childRef.updateChildValues((values)) { (error, ref) in
             if error != nil {
-                print(error)
+                Alert.showBasic(title: "No connection", msg: "Please check you internet connection", vc: self)
                 return
             }
             
@@ -258,15 +239,11 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
             
             let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId!)
             recipientUserMessagesRef.updateChildValues([messageId : 1])
-            
-            
         }
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         handleSend()
         return true
     }
-
 }
