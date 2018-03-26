@@ -27,7 +27,8 @@ class LoginController: UIViewController {
     
    lazy var  loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 0 , g: 89 , b: 179)
+        button.backgroundColor =  UIColor(white: 1, alpha: 0.1)
+        // button.backgroundColor = UIColor(r: 0 , g: 89 , b: 179)
         //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -122,6 +123,53 @@ class LoginController: UIViewController {
         return sc
     }()
     
+    
+    lazy var labelSlogan: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "First online Swift community for Developers.."
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    
+    lazy var swiftLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "swift_logo")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 22.5
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    
+    lazy var metalLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "metal_logo")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 22.5
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    
+    lazy var arkitLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "arkit_logo")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 22.5
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     @objc func handleLoginRegisterChange(){
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         loginRegisterButton.setTitle(title, for: .normal )
@@ -144,7 +192,7 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       view.backgroundColor = UIColor(r: 0, g: 102, b: 204)
+       view.backgroundColor = UIColor(r: 38, g: 38, b: 38)
         
       //  view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
@@ -152,11 +200,17 @@ class LoginController: UIViewController {
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
+        view.addSubview(labelSlogan)
+        view.addSubview(swiftLogoImageView)
+        view.addSubview(metalLogoImageView)
+        view.addSubview(arkitLogoImageView)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
+        setupSloganLabel()
+        setupLogoImages()
     }
     
     func setupLoginRegisterSegmentedControl(){
@@ -170,9 +224,9 @@ class LoginController: UIViewController {
   func setupProfileImageView(){
         
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -50).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -40).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 145).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 145).isActive = true
     }
  
     var inputsContainerViewHightAnchor: NSLayoutConstraint?
@@ -231,7 +285,37 @@ class LoginController: UIViewController {
         loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+    }
+    
+    
+    func setupSloganLabel(){
+        labelSlogan.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 70).isActive = true
+        labelSlogan.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        labelSlogan.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        labelSlogan.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        
+        }
+    
+    
+    func setupLogoImages(){
+        
+        swiftLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        swiftLogoImageView.topAnchor.constraint(equalTo: labelSlogan.bottomAnchor, constant: 20).isActive = true
+        swiftLogoImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        swiftLogoImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
+        metalLogoImageView.centerXAnchor.constraint(equalTo: swiftLogoImageView.rightAnchor, constant: 40).isActive = true
+        metalLogoImageView.topAnchor.constraint(equalTo: labelSlogan.bottomAnchor, constant: 20).isActive = true
+        metalLogoImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        metalLogoImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
+        arkitLogoImageView.centerXAnchor.constraint(equalTo: swiftLogoImageView.leftAnchor, constant: -40).isActive = true
+        arkitLogoImageView.topAnchor.constraint(equalTo: labelSlogan.bottomAnchor, constant: 20).isActive = true
+        arkitLogoImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        arkitLogoImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
     }
  
     override var preferredStatusBarStyle: UIStatusBarStyle {
