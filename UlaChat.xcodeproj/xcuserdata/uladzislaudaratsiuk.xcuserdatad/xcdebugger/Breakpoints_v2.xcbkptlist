@@ -10,13 +10,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UlaChat/Controller/LoginController.swift"
-            timestampString = "543758900.412812"
+            timestampString = "543762238.22484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
             landmarkName = "LoginController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __ObjC.UIView in variable initialization expression of UlaChat.LoginController.inputsContainerView : __ObjC.UIView"
+                  moduleName = "UlaChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uladzislaudaratsiuk/Desktop/Swift/UlaChat/UlaChat/Controller/LoginController.swift"
+                  timestampString = "543759699.6312391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UlaChat.LoginController.inputsContainerView.getter : __ObjC.UIView"
+                  moduleName = "UlaChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uladzislaudaratsiuk/Desktop/Swift/UlaChat/UlaChat/Controller/LoginController.swift"
+                  timestampString = "543759699.6334569"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UlaChat.LoginController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; UlaChat.LoginController"
+                  moduleName = "UlaChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uladzislaudaratsiuk/Desktop/Swift/UlaChat/UlaChat/Controller/LoginController.swift"
+                  timestampString = "543759699.635428"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UlaChat.LoginController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;UlaChat.LoginController&gt;"
+                  moduleName = "UlaChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uladzislaudaratsiuk/Desktop/Swift/UlaChat/UlaChat/Controller/LoginController.swift"
+                  timestampString = "543759699.637347"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UlaChat/Controller/LoginController.swift"
-            timestampString = "543758900.413219"
+            timestampString = "543762238.225168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"

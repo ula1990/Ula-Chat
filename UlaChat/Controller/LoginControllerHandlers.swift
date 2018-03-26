@@ -29,8 +29,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
             
             if let profileImage = self.profileImageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1){
-            
-      //      if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!){
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
@@ -62,10 +60,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             user.profileImageUrl = values["profileImageUrl"] as? String
             
             self.messagesController?.setupNavBarWithUser(user: user)
-            //self.messagesController?.fetchUserAndSetupNavBarTitle()
-      //      self.messagesController?.navigationItem.title = values["name"] as? String
             self.dismiss(animated: true, completion: nil)
-            
         } )
         
     }
@@ -93,7 +88,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         
         if let selectedImage = selectedImageFromPicker {
             profileImageView.image = selectedImage
-            
         }
         
         dismiss(animated: true, completion: nil)
@@ -102,6 +96,5 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
     
 }

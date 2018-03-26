@@ -127,7 +127,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         if let profileImageUrl = self.user?.profileImageUrl {
         cell.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
         }
-        
         if message.fromId == Auth.auth().currentUser?.uid{
             
             cell.bubbleView.backgroundColor = ChatMessageCell.blueColor
@@ -223,7 +222,6 @@ class ChatLogController: UICollectionViewController,UITextFieldDelegate,UICollec
         let fromID = Auth.auth().currentUser!.uid
         let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         let values = ["text": inputTextField.text!, "toId": toId, "fromId": fromID, "timestamp": timeStamp] as [String : Any]
-        
         
         childRef.updateChildValues((values)) { (error, ref) in
             if error != nil {

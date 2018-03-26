@@ -15,12 +15,4 @@ class User: NSObject {
     var email: String?
     var profileImageUrl: String?
     
-    
-/*    init(name: String, email: String) {
-        self.name = name
-        self.email = email
-    }
- 
- */
-    
 }

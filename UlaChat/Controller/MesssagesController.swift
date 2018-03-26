@@ -16,7 +16,7 @@ class MesssagesController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewMessage))
         navigationItem.rightBarButtonItem?.tintColor = .black
@@ -158,12 +158,10 @@ class MesssagesController: UITableViewController {
         messages.removeAll()
         messagesDictionary.removeAll()
         tableView.reloadData()
-        
         observeUserMessages()
         
         let titleView = UIView()
         titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
-        
         
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -198,11 +196,7 @@ class MesssagesController: UITableViewController {
         containerView.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: titleView.centerYAnchor).isActive = true
  
-
         self.navigationItem.titleView = titleView
-   /*     let recongonizer = UITapGestureRecognizer(target: self, action: #selector(MesssagesController.showChatController))
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(recongonizer) */
     }
     
     @objc func showChatController(user: User){

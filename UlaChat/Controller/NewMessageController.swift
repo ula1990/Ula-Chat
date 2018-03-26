@@ -19,12 +19,10 @@ class NewMessageController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.leftBarButtonItem?.tintColor = .black
-        
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
-        
+
         fetchUser()
     }
-    
     
     func fetchUser(){
         Database.database().reference().child("users").observe(.childAdded) { (snapshot) in
@@ -39,7 +37,6 @@ class NewMessageController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                
             }
         }
     }

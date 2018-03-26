@@ -28,8 +28,6 @@ class LoginController: UIViewController {
    lazy var  loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor =  UIColor(white: 1, alpha: 0.1)
-        // button.backgroundColor = UIColor(r: 0 , g: 89 , b: 179)
-        //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
@@ -196,10 +194,7 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       view.backgroundColor = UIColor(r: 38, g: 38, b: 38)
-        
-      //  view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
-        
+        view.backgroundColor = UIColor(r: 38, g: 38, b: 38)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
@@ -228,7 +223,7 @@ class LoginController: UIViewController {
   func setupProfileImageView(){
         
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -40).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -30).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 145).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 145).isActive = true
     }
@@ -243,8 +238,7 @@ class LoginController: UIViewController {
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-      
-        inputsContainerViewHightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 150)
+        inputsContainerViewHightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 135)
         inputsContainerViewHightAnchor?.isActive = true
         
         inputsContainerView.addSubview(nameTextField)
@@ -256,7 +250,6 @@ class LoginController: UIViewController {
         nameTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
         nameTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor).isActive = true
         nameTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        
         nameTextFieldHidthAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/3)
         nameTextFieldHidthAnchor?.isActive = true
         
@@ -292,15 +285,13 @@ class LoginController: UIViewController {
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
-    
     func setupSloganLabel(){
         labelSlogan.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 70).isActive = true
         labelSlogan.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         labelSlogan.widthAnchor.constraint(equalToConstant: 300).isActive = true
         labelSlogan.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        
-        }
+    }
     
     
     func setupLogoImages(){
@@ -319,7 +310,6 @@ class LoginController: UIViewController {
         arkitLogoImageView.topAnchor.constraint(equalTo: labelSlogan.bottomAnchor, constant: 20).isActive = true
         arkitLogoImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
         arkitLogoImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        
     }
  
     override var preferredStatusBarStyle: UIStatusBarStyle {
