@@ -27,7 +27,6 @@ class UserCell: UITableViewCell {
         
     }
     
-    
     private func setupNameAndProfileImage(){
  
         if let id = message?.chatPartnerId() {
@@ -42,9 +41,7 @@ class UserCell: UITableViewCell {
                         
                         self.profileImageView.loadimagesUisingCacheWithUrlString(urlString: profileImageUrl)
                     }
-                    
                 }
-                
             }, withCancel: nil)
         }
     }
