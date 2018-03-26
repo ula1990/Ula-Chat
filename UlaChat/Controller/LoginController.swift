@@ -51,11 +51,13 @@ class LoginController: UIViewController {
     func handleLogin () {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             Alert.showBasic(title: "Incorrect input", msg: "Please check you that email and password is correct", vc: self)
+            view.endEditing(true)
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 Alert.showBasic(title: "Please check input", msg: "Username or password is incorrect", vc: self)
+                self.view.endEditing(true)
                 return
             }
             self.messagesController?.fetchUserAndSetupNavBarTitle()
@@ -187,6 +189,8 @@ class LoginController: UIViewController {
         passwordTextFieldHigthAnchor?.isActive = false
         passwordTextFieldHigthAnchor = passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 1/2 : 1/3 )
         passwordTextFieldHigthAnchor?.isActive = true
+        
+        view.endEditing(true)
     }
     
 
